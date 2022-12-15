@@ -27,7 +27,7 @@ async function main(){
     //localhost:8888/recipes
     app.get('/recipes', async(req, res)=>{
         console.log(`getting recipes`)
-        let recipes = await db.collection('menu_collection').find().toArray();
+        let recipes = await db.collection('menu-collection').find().toArray();
         res.status(200);
         res.send(recipes);
     })
@@ -37,7 +37,7 @@ async function main(){
     app.post('/recipes', async(req,res)=>{
         //@TODO by right deal with some error handling 
 
-        const results = await db.collection('menu_collection').insertOne({
+        const results = await db.collection('menu-collection').insertOne({
             name: req.body.title,
             type: req.body.type,
             price: req.body.price
