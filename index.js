@@ -26,6 +26,7 @@ async function main(){
 
     //localhost:8888/recipes
     app.get('/recipes', async(req, res)=>{
+        console.log(`getting recipes`)
         let recipes = await db.collection('menu_collection').find().toArray();
         res.status(200);
         res.send(recipes);
@@ -45,6 +46,7 @@ async function main(){
         res.send(results);
     })
 }
+
 
 main();
 
